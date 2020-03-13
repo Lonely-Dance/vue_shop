@@ -1,0 +1,37 @@
+{
+  "id": "1489765",
+  "name": "练习",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8754779",
+      "name": "头像",
+      "font_class": "touxiang",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "13040165",
+      "name": "密码",
+      "font_class": "mima",
+      "unicode": "e774",
+      "unicode_decimal": 59252
+    },
+    {
+      "icon_id": "8371708",
+      "name": "MV",
+      "font_class": "MV",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "705706",
+      "name": "播放",
+      "font_class": "bofang",
+      "unicode": "e630",
+      "unicode_decimal": 58928
+    }
+  ]
+}
