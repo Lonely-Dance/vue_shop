@@ -6,6 +6,55 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "144290",
+      "name": "报表",
+      "font_class": "jikediancanicon44",
+      "unicode": "e79b",
+      "unicode_decimal": 59291
+    },
+    {
+      "icon_id": "316748",
+      "name": "eye",
+      "font_class": "eye",
+      "unicode": "e6e7",
+      "unicode_decimal": 59111
+    },
+    {
+      "icon_id": "401225",
+      "name": "users",
+      "font_class": "users",
+      "unicode": "e8b5",
+      "unicode_decimal": 59573
+    },
+    {
+      "icon_id": "586970",
+      "name": "lock",
+      "font_class": "lock",
+      "unicode": "e779",
+      "unicode_decimal": 59257
+    },
+    {
+      "icon_id": "11663689",
+      "name": "商品 (1)",
+      "font_class": "shangpin",
+      "unicode": "e6bf",
+      "unicode_decimal": 59071
+    },
+    {
+      "icon_id": "12870023",
+      "name": "单据",
+      "font_class": "danju",
+      "unicode": "e740",
+      "unicode_decimal": 59200
+    },
+    {
+      "icon_id": "13258488",
+      "name": "数据立方体",
+      "font_class": "shujulifangti",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
       "icon_id": "8754779",
       "name": "头像",
       "font_class": "touxiang",

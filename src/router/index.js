@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
  
 import Login from '../components/login.vue'
 import Home from '../views/Home.vue'
+import Welcome from '../views/Welcome'
+import User from '../views/users/User'
 
 Vue.use(VueRouter)
 
@@ -13,8 +15,14 @@ const routes = [
     component:Login
   },
   {
+    // 在home页嵌套子路由，自动定向到welcome页
     path:"/home",
-    component:Home
+    component:Home,
+    redirect:'/welcome',
+    children:[
+      {path:'/welcome',component:Welcome},
+      {path:'/users',component:User}
+    ]
   },
   {path:"/",redirect:"/login"}
 
