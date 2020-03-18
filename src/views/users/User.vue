@@ -5,7 +5,7 @@
       <el-breadcrumb-item>用户管理</el-breadcrumb-item>
       <el-breadcrumb-item>用户列表</el-breadcrumb-item>
     </el-breadcrumb>
-
+  
     <!-- 卡片区域 -->
     <el-card class="box-card" shadow="never">
       <el-row :gutter="20">
@@ -35,7 +35,7 @@
             </template>
           
         </el-table-column>
-        <el-table-column property="role_name" label="操作">
+      <el-table-column property="role_name" label="操作">
             <template slot-scope="scope">
                 <!-- 修改按钮 -->
             <el-button type="primary" icon="el-icon-edit" size="mini" @click="showEditDialog(scope.row.id)"></el-button>
@@ -68,9 +68,7 @@
   :visible.sync="addUserVisible"
   width="50%"
    @close="addUserClosed">
-  <!-- 内容主体区域 -->
- 
- <!-- 添加用户的表单 -->
+<!-- 添加用户的表单 -->
  <el-form :model="addUserForm" :rules="addUserRules" ref="addUserFormRef" label-width="100px" class="demo-ruleForm">
   <el-form-item label="用户名" prop="username">
     <el-input v-model="addUserForm.username"></el-input>
@@ -94,7 +92,6 @@
     <el-button type="primary" @click="addUserComfirm">确 定</el-button>
   </span>
 </el-dialog>
-
 
 <!-- 修改用户区域 -->
 <el-dialog
@@ -123,6 +120,35 @@
   </span>
 </el-dialog>
 
+ 
+<!-- 添加对话框 实现点击分配权限管理时的弹框-->
+ <el-dialog
+  title="分配角色"
+  :visible.sync="setRolesDialogVisible"
+  width="50%"
+  
+   >
+  <!-- 内容主体区域 -->
+  <div>
+    <p> 用户名：{{this.userInfo.username}}</p>
+    <p>身份：{{this.userInfo.role_name}}</p>
+    <p> 分配角色：</p>
+     <el-select v-model="roleSelectedId" placeholder="请选择">
+    <el-option
+      v-for="item in rolesList"
+      :key="item.id"
+      :label="item.roleName"
+      :value="item.id"
+      >
+    </el-option>
+  </el-select>
+  </div>
+   <!-- footer 按钮区域 -->
+  <span slot="footer" class="dialog-footer">
+    <el-button @click="setRolesDialogVisible = false">取 消</el-button>
+    <el-button type="primary" @click="setRolesComfirm">确 定</el-button>
+  </span>
+</el-dialog>
   </div>
 </template>
 
@@ -160,8 +186,9 @@ export default {
         email:'',
         mobile:''
     },
-     // 添加表单的验证规则对象
-      addUserRules: {
+    // 添加表单的验证规则对象
+    
+    addUserRules: {
         username: [
           { required: true, message: '请输入用户名', trigger: 'blur' },
           {
@@ -192,7 +219,11 @@ export default {
 
     //   设置修改用户的对话框是够显示
     editUserVisible:false,
-    editUserForm:{}
+    editUserForm:{},
+    setRolesDialogVisible:false,
+    userInfo:[],
+    roleSelectedId:'',
+    rolesList:''
 
  
     
@@ -313,8 +344,6 @@ export default {
             this.$message.success('修改用户信息成功！')
 
         })
-
-
     },
    async removeUserById(id){
          const confirmRes=await this.$confirm('此操作将永久删除该用户, 是否继续?', '提示', {
@@ -334,12 +363,29 @@ export default {
       }
 
       this.$message.success('删除用户成功！')
-      this.getUserList()
-       
-       
+      this.getUserList()       
      },
-    setRole(str){
-        console.log(str);
+   async setRole(role){
+        console.log(role)
+       
+        //保存当前的用户信息
+        this.userInfo=role
+         const {data:res}= await this.$http.get('roles')
+         this.rolesList=res.data;
+         console.log(res);
+         
+        this.setRolesDialogVisible=true;
+        
+
+    },
+    async  setRolesComfirm(){
+      if(!this.roleSelectedId) return this.$message.error('请选择要分配的用户角色！')
+      const { data: res } = await 
+       this.$http.put(`users/${this.userInfo.id}/role`,{rid:this.roleSelectedId})
+      if(res.meta.status!=200) return this.$message.error('分配用户角色失败！')
+       this.$message.success('分配用户角色成功！')
+       this.setRolesDialogVisible=false
+      
 
     }
     
@@ -349,5 +395,6 @@ export default {
 <style lang="less" scoped>
 .box-card {
   margin-top: 10px;
+   
 }
 </style>
