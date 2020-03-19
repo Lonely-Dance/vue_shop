@@ -19,6 +19,7 @@
         <el-table-column property="path" label="路径" width="150px"></el-table-column>
         <el-table-column property="level" label="等级" width="150px">
             <template slot-scope="scope">
+              <!-- 使用if-else实现不同的样式显示 -->
             <el-tag v-if="scope.row.level === '0'">一级</el-tag>
             <el-tag type="success" v-else-if="scope.row.level === '1'">二级</el-tag>
             <el-tag type="warning" v-else>三级</el-tag>

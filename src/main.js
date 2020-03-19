@@ -7,6 +7,9 @@ import './assets/fonts/iconfont.css'
 import './plugins/element.js'
 import  './plugins/axios.js'
 //使用axios 发起请求
+import ZkTable from 'vue-table-with-tree-grid'
+
+Vue.use(ZkTable)
 
 
 
