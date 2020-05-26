@@ -5,8 +5,9 @@ import axios from "axios";
  
  
 Vue.prototype.$http=axios
-// axios.defaults.baseURL='http://119.23.53.78:8888/api/private/v1/'
-axios.defaults.baseURL='http://106.12.11.162:8888/api/private/v1/'
+axios.defaults.baseURL='http://119.23.53.78:8888/api/private/v1/'
+// axios.defaults.baseURL='http://106.12.11.162:8888/api/private/v1/'
+// axios.defaults.baseURL='http://106.12.11.162:8888/api/private/v1/'
 
 //实现路由拦截
 axios.interceptors.request.use(config=>{

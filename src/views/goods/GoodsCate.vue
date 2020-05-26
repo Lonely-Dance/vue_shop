@@ -207,8 +207,8 @@ export default {
       }
       this.GoodsCateList = res.data.result;
       this.total = res.data.total;
-      console.log("商品分类列表：");
-      console.log(res);
+      // console.log("商品分类列表：");
+      // console.log(res);
     },
     //显示添加分类对话框
     showAddCateDialog(){
