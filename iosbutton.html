@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            position: relative;
+            width: 40px;
+            height: 20px;
+            background-color:transparent;
+            border-radius: 10px;
+            
+        }
+        .inner{
+            
+            background-color:#fff;            
+            width: 20px;            
+            height: 20px;
+            border-radius: 50%;
+            margin: 0.5px;  
+            box-shadow: 1px 1px 1px lightgray;           
+        }
+        #state{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index:999;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            opacity: 0;
+
+        }
+        #state:checked{
+            transform: translate(100%);
+        }
+        .outer{
+            width: 40px;
+            height: 20px;
+            background-color:white;
+            border-radius: 10px;   
+            box-shadow: 1px 1px 1px lightgray;           
+        }
+         #state:checked+div{
+            background-color: rgb(67,219,100);
+            box-shadow: -1px -1px -1px lightgray;              
+             
+        }
+        #state:checked+div .inner{
+            transform: translate(100%);
+             
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        hahhah
+        <input type="checkbox"  id="state">
+        <div class="outer"> <div class="inner"> get inner</div>       
+     </div>
+    
+    </div>
+
+    <script>
+        var str=".container .inner"
+        function  customQuery(str){
+            var reg=new RegExp(/\./,"g")
+            let classname=str.replace(reg,"").split(" ")
+             console.log(classname);
+             var i=0
+             while(i<classname.length){
+                 var ele= document.getElementsByClassName(classname[i])[0]                              
+                i++
+             }
+             console.log(ele.innerText);
+                  }
+        fun(str)
+    </script>
+</body>
+</html>

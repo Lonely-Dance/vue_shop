@@ -9,6 +9,8 @@ import Right from '../views/power/Right'
 import Role from '../views/power/Role'
 import GoodsCate from '../views/goods/GoodsCate'
 import  Params from '../views/goods/Params'
+import List from '../views/goods/List'
+import Add from '../views/goods/Add'
 
 Vue.use(VueRouter)
 
@@ -30,6 +32,8 @@ const routes = [
       {path:'/roles',component:Role},
       {path:'/categories',component:GoodsCate},
       {path:'/params',component:Params},
+      {path:'/goods',component:List},
+      {path:'/goods/add',component:Add},
     ]
   },
   {path:"/",redirect:"/login"}

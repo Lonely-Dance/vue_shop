@@ -247,7 +247,7 @@ export default {
       
     },
 
-      handleSizeChange(newSize) {
+    handleSizeChange(newSize) {
         console.log(`每页 ${newSize} 条`);
         //每页显示数据数量改变时 监听数据发生的变化 更新列表
          this.paramsObj.pagesize = newSize
