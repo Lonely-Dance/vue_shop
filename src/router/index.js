@@ -11,7 +11,7 @@ import GoodsCate from '../views/goods/GoodsCate'
 import  Params from '../views/goods/Params'
 import List from '../views/goods/List'
 import Add from '../views/goods/Add'
-
+import Order from "../views/order/Order"
 Vue.use(VueRouter)
 
 const routes = [
@@ -34,6 +34,7 @@ const routes = [
       {path:'/params',component:Params},
       {path:'/goods',component:List},
       {path:'/goods/add',component:Add},
+      {path:'/orders',component:Order},
     ]
   },
   {path:"/",redirect:"/login"}

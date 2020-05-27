@@ -8,7 +8,6 @@
       <el-breadcrumb-item>商品列表</el-breadcrumb-item>
     </el-breadcrumb>
 
-    <!-- 卡片区域显示列表结构 -->
     <el-card class="box-card">
       <el-row :gutter="20">
         <el-col :span="18">
